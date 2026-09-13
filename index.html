@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>LearnFromZero – Beginner’s Guide to Education</title>
+  <meta name="description" content="A free beginner-friendly education blog to learn anything from zero." />
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@3.4.0/dist/tailwind.min.css" rel="stylesheet" />
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='0.9em' font-size='90' fill='blue'>📘</text></svg>" />
+  <script src="js/comments.js" defer></script>
+</head>
+<body class="bg-gradient-to-br from-blue-50 via-indigo-50 to-purple-50 min-h-screen">
+  <header class="bg-white shadow-lg border-b">
+    <div class="container mx-auto px-6 py-8">
+      <div class="flex items-center justify-between">
+        <h1 class="text-4xl font-bold text-indigo-700">LearnFromZero</h1>
+        <div class="hidden md:block">
+          <span class="text-sm text-gray-500">A beginner-friendly education platform</span>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main class="container mx-auto px-6 py-12 max-w-4xl">
+    <!-- Hero Section -->
+    <section class="mb-16 text-center">
+      <h2 class="text-3xl md:text-4xl font-bold text-gray-800 mb-6">
+        How to Learn Anything from Zero – The Beginner’s Guide
+      </h2>
+      <p class="text-lg text-gray-600 max-w-3xl mx-auto leading-relaxed">
+        This is your first step into learning anything — from math to coding to life skills. 
+        No prior knowledge needed. Just curiosity and consistency.
+      </p>
+    </section>
+
+    <!-- Post Content -->
+    <section class="mb-16 space-y-8">
+      <div class="bg-white p-8 rounded-2xl shadow-lg border border-indigo-100">
+        <h3 class="text-2xl font-semibold text-indigo-700 mb-4">Why Start from Zero?</h3>
+        <p class="text-gray-700 leading-relaxed mb-4">
+          Most people think they need to be smart or know a lot before learning. But the truth is — 
+          you don’t. The journey starts with asking simple questions: "What is this?" "How does it work?"
+        </p>
+        <p class="text-gray-700 leading-relaxed mb-4">
+          Start small. Learn one thing at a time. Then repeat. Then build. This is how experts begin.
+        </p>
+        <div class="bg-indigo-50 p-4 rounded-lg border-l-4 border-indigo-400 mt-6">
+          <strong class="font-medium">Tip:</strong> Every day, pick one thing to learn. Write it down. 
+          That’s all it takes to grow.
+        </div>
+      </div>
+
+      <!-- CTA to Comment Section -->
+      <div class="bg-gradient-to-r from-indigo-600 to-purple-600 text-white p-6 rounded-2xl shadow-lg">
+        <h3 class="text-2xl font-bold mb-4">Share Your Thoughts Below</h3>
+        <div class="flex flex-col space-y-4">
+          <div class="flex gap-2">
+            <input type="text" id="comment-name" placeholder="Your name" class="flex-1 px-4 py-2 rounded-lg border border-indigo-200 focus:outline-none focus:ring-2 focus:ring-white" />
+            <button onclick="addComment()" class="px-6 py-2 bg-white text-indigo-700 font-semibold rounded-lg hover:bg-gray-100 transition">Post</button>
+          </div>
+          <div id="comment-box" class="border-t pt-4 mt-4">
+            <p class="text-sm text-white/90">Comments will appear here.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Topics Table -->
+    <section class="bg-white p-8 rounded-2xl shadow-lg border border-gray-100">
+      <h3 class="text-2xl font-bold text-gray-800 mb-6">Explore Our Beginner Topics</h3>
+      <div class="overflow-x-auto">
+        <table class="min-w-full table-auto">
+          <thead>
+            <tr class="bg-indigo-50 text-left text-gray-700 font-semibold">
+              <th class="px-6 py-3 border-b">Topic</th>
+              <th class="px-6 py-3 border-b">Difficulty</th>
+              <th class="px-6 py-3 border-b">First Step</th>
+            </tr>
+          </thead>
+          <tbody class="text-gray-700">
+            <tr class="hover:bg-indigo-50 transition">
+              <td class="px-6 py-3 border-b">Math for Beginners</td>
+              <td class="px-6 py-3 border-b">Easy</td>
+              <td class="px-6 py-3 border-b">Count from 1 to 10</td>
+            </tr>
+            <tr class="hover:bg-indigo-50 transition">
+              <td class="px-6 py-3 border-b">English Basics</td>
+              <td class="px-6 py--3 border-b">Easy</td>
+              <td class="px-6 py-3 border-b">Say "Hello" and "Thank you"</td>
+            </tr>
+            <tr class="hover:bg-indigo-50 transition">
+              <td class="px-6 py-3 border-b">How to Read a Book</td>
+              <td class="px-6 py-3 border-b">Easy</td>
+              <td class="px-6 py-3 border-b">Start with a simple story</td>
+            </tr>
+            <tr class="hover:bg-indigo-50 transition">
+              <td class="px-6 py-3 border-b">Coding with Scratch</td>
+              <td class="px-6 py-3 border-b">Medium</td>
+              <td class="px-6 py-3 border-b">Make a moving cat</td>
+            </tr>
+            <tr class="hover:bg-indigo-50 transition">
+              <td class="px-6 py-3 border-b">Life Skills</td>
+              <td class="px-6 py-3 border-b">Easy</td>
+              <td class="px-6 py-3 border-b">Plan your day</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+  </main>
+
+  <footer class="bg-indigo-700 text-white py-10 mt-16">
+    <div class="container mx-auto px-6 text-center">
+      <p class="text-lg">© 2026 LearnFromZero – A free beginner education blog.</p>
+      <p class="text-sm mt-2">Made with ❤️ for every learner who starts from zero.</p>
+    </div>
+  </footer>
+</body>
+</html>
