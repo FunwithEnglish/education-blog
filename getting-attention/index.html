@@ -1,0 +1,1099 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Getting Attention – Bahasa Inggris Kelas VIII</title>
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@500;600;700&family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+<style>
+  :root{
+    --primary:#4361ee;
+    --secondary:#7209b7;
+    --accent:#f72585;
+    --success:#06d6a0;
+    --warning:#ffd166;
+    --light:#f8f9ff;
+    --dark:#2b2d42;
+    --soft:#eef2ff;
+  }
+  *{box-sizing:border-box}
+  body{
+    font-family:'Poppins',sans-serif;
+    background:linear-gradient(135deg,#f8f9ff 0%,#eef2ff 100%);
+    color:var(--dark);
+    margin:0;
+    padding:0;
+    line-height:1.6;
+  }
+  h1,h2,h3,h4,h5{font-family:'Quicksand',sans-serif;font-weight:700}
+  .app-header{
+    background:linear-gradient(135deg,var(--primary),var(--secondary));
+    color:#fff;
+    padding:1.2rem 1.5rem;
+    position:sticky;
+    top:0;
+    z-index:1000;
+    box-shadow:0 4px 20px rgba(67,97,238,.2);
+  }
+  .app-header h1{font-size:1.4rem;margin:0}
+  .app-header .sub{font-size:.85rem;opacity:.9}
+  .progress-wrap{margin-top:.6rem}
+  .progress{height:8px;border-radius:10px;background:rgba(255,255,255,.25)}
+  .progress-bar{background:var(--warning);border-radius:10px;transition:width .4s}
+  .layout{display:grid;grid-template-columns:260px 1fr;gap:1.2rem;max-width:1400px;margin:1.2rem auto;padding:0 1rem}
+  @media(max-width:900px){.layout{grid-template-columns:1fr}}
+  .sidebar{
+    background:#fff;
+    border-radius:18px;
+    padding:1rem;
+    box-shadow:0 6px 20px rgba(0,0,0,.05);
+    height:fit-content;
+    position:sticky;
+    top:110px;
+  }
+  @media(max-width:900px){.sidebar{position:static}}
+  .sidebar h5{font-size:1rem;color:var(--primary);margin-bottom:.8rem}
+  .nav-list{list-style:none;padding:0;margin:0}
+  .nav-list li{margin-bottom:4px}
+  .nav-list a{
+    display:flex;align-items:center;gap:.5rem;
+    padding:.55rem .75rem;border-radius:10px;
+    color:var(--dark);text-decoration:none;font-size:.88rem;font-weight:500;
+    transition:all .2s;
+  }
+  .nav-list a:hover{background:var(--soft);color:var(--primary)}
+  .nav-list a.active{background:linear-gradient(135deg,var(--primary),var(--secondary));color:#fff}
+  .nav-list a i{width:18px}
+  .content{background:#fff;border-radius:18px;padding:1.5rem;box-shadow:0 6px 20px rgba(0,0,0,.05)}
+  .section{display:none;animation:fade .4s ease}
+  .section.active{display:block}
+  @keyframes fade{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:translateY(0)}}
+  .section-title{
+    display:flex;align-items:center;gap:.6rem;
+    color:var(--primary);font-size:1.5rem;margin-bottom:1rem;
+    border-bottom:3px solid var(--soft);padding-bottom:.6rem;
+  }
+  .section-title i{background:var(--soft);padding:.5rem;border-radius:12px;color:var(--primary)}
+  .card-info{
+    background:var(--soft);border-left:4px solid var(--primary);
+    padding:1rem 1.2rem;border-radius:12px;margin:1rem 0;
+  }
+  .card-info.warn{border-left-color:var(--warning);background:#fff8e6}
+  .card-info.success{border-left-color:var(--success);background:#e6fff8}
+  .card-info.danger{border-left-color:var(--accent);background:#ffe6f0}
+  table{width:100%;border-collapse:collapse;margin:1rem 0}
+  table th{background:var(--primary);color:#fff;padding:.7rem;text-align:left}
+  table td{padding:.7rem;border-bottom:1px solid #eee}
+  table tr:hover{background:var(--soft)}
+  .audio-btn{
+    background:var(--accent);color:#fff;border:none;border-radius:50%;
+    width:32px;height:32px;cursor:pointer;margin-left:.4rem;
+    transition:transform .2s;
+  }
+  .audio-btn:hover{transform:scale(1.1)}
+  .dialog-box{
+    background:linear-gradient(135deg,#fff,#f8f9ff);
+    border:2px solid var(--soft);border-radius:16px;padding:1.2rem;margin:1rem 0;
+  }
+  .dialog-line{display:flex;gap:.7rem;margin-bottom:.7rem;align-items:flex-start}
+  .avatar{
+    width:40px;height:40px;border-radius:50%;
+    display:flex;align-items:center;justify-content:center;
+    color:#fff;font-weight:700;flex-shrink:0;
+  }
+  .avatar.a{background:var(--primary)}
+  .avatar.b{background:var(--accent)}
+  .avatar.c{background:var(--success)}
+  .bubble{
+    background:#fff;padding:.7rem 1rem;border-radius:14px;
+    box-shadow:0 2px 8px rgba(0,0,0,.05);flex:1;
+  }
+  .bubble .name{font-size:.75rem;color:var(--primary);font-weight:600;margin-bottom:.2rem}
+  .quiz-option{
+    display:block;padding:.8rem 1rem;margin:.5rem 0;
+    background:#fff;border:2px solid #e0e0e0;border-radius:12px;
+    cursor:pointer;transition:all .2s;
+  }
+  .quiz-option:hover{border-color:var(--primary);background:var(--soft)}
+  .quiz-option.correct{background:#d4f5e9;border-color:var(--success);color:#0a6640}
+  .quiz-option.wrong{background:#ffe0ea;border-color:var(--accent);color:#8b0030}
+  .quiz-option.disabled{pointer-events:none;opacity:.85}
+  .btn-primary-custom{
+    background:linear-gradient(135deg,var(--primary),var(--secondary));
+    color:#fff;border:none;padding:.6rem 1.2rem;border-radius:10px;
+    font-weight:600;cursor:pointer;transition:transform .2s;
+  }
+  .btn-primary-custom:hover{transform:translateY(-2px);color:#fff}
+  .btn-outline-custom{
+    background:#fff;color:var(--primary);border:2px solid var(--primary);
+    padding:.5rem 1rem;border-radius:10px;font-weight:600;cursor:pointer;
+  }
+  .btn-outline-custom:hover{background:var(--primary);color:#fff}
+  .nav-buttons{display:flex;justify-content:space-between;margin-top:2rem;gap:.5rem;flex-wrap:wrap}
+  .hidden-answer{display:none;margin-top:.5rem;padding:.8rem;background:#e6fff8;border-radius:10px;border-left:3px solid var(--success)}
+  .tag{display:inline-block;padding:.2rem .6rem;border-radius:20px;font-size:.75rem;font-weight:600;margin-right:.3rem}
+  .tag.formal{background:#e0e7ff;color:var(--primary)}
+  .tag.informal{background:#ffe6f0;color:var(--accent)}
+  .score-box{
+    background:linear-gradient(135deg,var(--success),#06a77d);
+    color:#fff;padding:1.5rem;border-radius:16px;text-align:center;margin:1rem 0;
+  }
+  .score-box h2{font-size:2.5rem;margin:0}
+  .vocab-card{
+    background:#fff;border:2px solid var(--soft);border-radius:14px;padding:1rem;
+    margin-bottom:.8rem;transition:transform .2s;
+  }
+  .vocab-card:hover{transform:translateY(-3px);box-shadow:0 6px 16px rgba(0,0,0,.08)}
+  .vocab-en{font-size:1.1rem;font-weight:700;color:var(--primary)}
+  .vocab-id{color:#555;font-style:italic}
+  .vocab-ex{margin-top:.4rem;font-size:.9rem;color:#444}
+  .listening-box{
+    background:linear-gradient(135deg,#fff8e6,#fff);
+    border:2px dashed var(--warning);border-radius:16px;padding:1.2rem;margin:1rem 0;
+  }
+  .play-btn{
+    background:var(--warning);color:var(--dark);border:none;
+    padding:.7rem 1.3rem;border-radius:30px;font-weight:600;cursor:pointer;
+    display:inline-flex;align-items:center;gap:.5rem;
+  }
+  .play-btn:hover{background:#ffc233}
+  .fill-input{
+    border:none;border-bottom:2px dashed var(--primary);
+    padding:.3rem .5rem;font-size:1rem;width:120px;text-align:center;
+    background:transparent;outline:none;
+  }
+  .fill-input:focus{border-bottom-style:solid}
+  .match-grid{display:grid;grid-template-columns:1fr 1fr;gap:1rem;margin:1rem 0}
+  .match-col{display:flex;flex-direction:column;gap:.5rem}
+  .match-item{
+    padding:.7rem;background:#fff;border:2px solid var(--soft);border-radius:10px;
+    cursor:pointer;transition:all .2s;text-align:center;
+  }
+  .match-item:hover{border-color:var(--primary)}
+  .match-item.selected{background:var(--primary);color:#fff}
+  .match-item.matched{background:var(--success);color:#fff;pointer-events:none}
+  @media print{
+    .app-header,.sidebar,.nav-buttons,.audio-btn,.play-btn,.btn-primary-custom,.btn-outline-custom{display:none!important}
+    .section{display:block!important;page-break-inside:avoid}
+    .content{box-shadow:none}
+    body{background:#fff}
+  }
+  .emoji{font-size:1.3rem}
+  .step-num{
+    display:inline-flex;align-items:center;justify-content:center;
+    width:28px;height:28px;background:var(--primary);color:#fff;
+    border-radius:50%;font-weight:700;font-size:.85rem;margin-right:.5rem;
+  }
+  .grammar-box{
+    background:linear-gradient(135deg,#eef2ff,#fff);
+    border-radius:14px;padding:1.2rem;margin:1rem 0;border:1px solid #d6deff;
+  }
+  .grammar-box code{background:#fff;padding:.2rem .5rem;border-radius:6px;color:var(--accent);font-weight:600}
+  .reflect-q{
+    background:#fff;border:2px solid var(--soft);border-radius:12px;
+    padding:1rem;margin:.6rem 0;
+  }
+  .reflect-q textarea{width:100%;border:1px solid #ddd;border-radius:8px;padding:.6rem;margin-top:.4rem;min-height:60px;font-family:inherit}
+  .project-box{
+    background:linear-gradient(135deg,#ffe6f0,#fff);
+    border-radius:16px;padding:1.3rem;margin:1rem 0;border:2px solid #ffc2d9;
+  }
+</style>
+</head>
+<body>
+
+<header class="app-header">
+  <div class="d-flex justify-content-between align-items-start flex-wrap gap-2">
+    <div>
+      <h1><i class="fa-solid fa-book-open-reader"></i> Getting Attention</h1>
+      <div class="sub">Bahasa Inggris Kelas VIII • Fase D • Kurikulum Merdeka • Guru: Suhendi, S.Pd.</div>
+    </div>
+    <div class="d-flex gap-2">
+      <button class="btn btn-outline-light btn-sm" onclick="window.print()"><i class="fa-solid fa-print"></i> Cetak</button>
+      <button class="btn btn-outline-light btn-sm" onclick="resetAll()"><i class="fa-solid fa-rotate-right"></i> Reset</button>
+    </div>
+  </div>
+  <div class="progress-wrap">
+    <div class="progress">
+      <div class="progress-bar" id="progressBar" style="width:0%"></div>
+    </div>
+    <small id="progressText" style="opacity:.9">Progress: 0 / 14 bagian</small>
+  </div>
+</header>
+
+<div class="layout">
+  <aside class="sidebar">
+    <h5><i class="fa-solid fa-list"></i> Navigasi Materi</h5>
+    <ul class="nav-list" id="navList">
+      <li><a href="#" data-target="A" class="active"><i class="fa-solid fa-heading"></i>A. Judul</a></li>
+      <li><a href="#" data-target="B"><i class="fa-solid fa-bullseye"></i>B. Tujuan</a></li>
+      <li><a href="#" data-target="C"><i class="fa-solid fa-rocket"></i>C. Apersepsi</a></li>
+      <li><a href="#" data-target="D"><i class="fa-solid fa-lightbulb"></i>D. Why Learn This?</a></li>
+      <li><a href="#" data-target="E"><i class="fa-solid fa-spell-check"></i>E. Vocabulary</a></li>
+      <li><a href="#" data-target="F"><i class="fa-solid fa-code"></i>F. Grammar</a></li>
+      <li><a href="#" data-target="G"><i class="fa-solid fa-comments"></i>G. Model Dialog</a></li>
+      <li><a href="#" data-target="H"><i class="fa-solid fa-brain"></i>H. Let's Understand</a></li>
+      <li><a href="#" data-target="I"><i class="fa-solid fa-pen"></i>I. Let's Practice</a></li>
+      <li><a href="#" data-target="I2"><i class="fa-solid fa-headphones"></i>Listening</a></li>
+      <li><a href="#" data-target="I3"><i class="fa-solid fa-book"></i>Reading</a></li>
+      <li><a href="#" data-target="J"><i class="fa-solid fa-house"></i>J. Real Life</a></li>
+      <li><a href="#" data-target="K"><i class="fa-solid fa-palette"></i>K. Mini Project</a></li>
+      <li><a href="#" data-target="L"><i class="fa-solid fa-rotate-left"></i>L. Reflection</a></li>
+      <li><a href="#" data-target="M"><i class="fa-solid fa-clipboard-list"></i>M. Summary</a></li>
+      <li><a href="#" data-target="N"><i class="fa-solid fa-star"></i>N. Assessment</a></li>
+    </ul>
+  </aside>
+
+  <main class="content">
+
+    <!-- A. JUDUL -->
+    <section class="section active" id="A">
+      <h2 class="section-title"><i class="fa-solid fa-heading"></i>A. Judul Materi</h2>
+      <div style="text-align:center;padding:2rem 1rem;background:linear-gradient(135deg,#eef2ff,#ffe6f0);border-radius:18px">
+        <div style="font-size:3rem">👋 📢</div>
+        <h1 style="color:var(--primary);font-size:2.2rem;margin:.5rem 0">Getting Attention</h1>
+        <h3 style="color:var(--secondary);font-weight:600">Meminta Perhatian dengan Sopan dalam Bahasa Inggris</h3>
+        <p class="mt-3">Belajar cara memanggil perhatian orang lain—teman, guru, atau orang tua—dengan ungkapan yang tepat, sopan, dan natural.</p>
+        <span class="tag formal">Formal</span>
+        <span class="tag informal">Informal</span>
+      </div>
+      <div class="card-info">
+        <strong>📘 Identitas Materi:</strong><br>
+        Mata Pelajaran: Bahasa Inggris &nbsp;|&nbsp; Kelas: VIII SMP &nbsp;|&nbsp; Fase: D<br>
+        Topik: Ungkapan Interaksional (Interpersonal Expressions)<br>
+        Sub-topik: <em>Getting Attention</em> (Meminta Perhatian)<br>
+        Alokasi Waktu: 2 × 40 menit &nbsp;|&nbsp; Kurikulum Merdeka
+      </div>
+    </section>
+
+    <!-- B. TUJUAN -->
+    <section class="section" id="B">
+      <h2 class="section-title"><i class="fa-solid fa-bullseye"></i>B. Tujuan Pembelajaran</h2>
+      <p>Setelah mempelajari materi ini, kamu diharapkan mampu:</p>
+      <div class="card-info success">
+        <ol>
+          <li><strong>Mengenali</strong> ungkapan <em>getting attention</em> dalam bentuk lisan dan tulisan.</li>
+          <li><strong>Membedakan</strong> ungkapan formal (sopan/resmi) dan informal (akrab/santai).</li>
+          <li><strong>Menggunakan</strong> ungkapan <em>getting attention</em> yang tepat sesuai situasi (di kelas, kantin, rumah, dll).</li>
+          <li><strong>Merespons</strong> ungkapan meminta perhatian dengan jawaban yang sesuai.</li>
+          <li><strong>Percaya diri</strong> berkomunikasi sederhana dalam Bahasa Inggris di kehidupan sehari-hari.</li>
+        </ol>
+      </div>
+    </section>
+
+    <!-- C. APERSEPSI -->
+    <section class="section" id="C">
+      <h2 class="section-title"><i class="fa-solid fa-rocket"></i>C. Apersepsi – Let's Get Started!</h2>
+      <div class="card-info">
+        <p class="mb-2"><strong>🤔 Coba pikirkan:</strong></p>
+        <ul>
+          <li>Apa yang kamu ucapkan ketika ingin memanggil temanmu yang sedang asyik main HP?</li>
+          <li>Bagaimana cara kamu memanggil guru sebelum bertanya di kelas?</li>
+          <li>Apa yang kamu katakan saat ingin bertanya pada penjual di kantin?</li>
+        </ul>
+      </div>
+      <p>Pernahkah kamu mengalami situasi seperti ini?</p>
+      <div class="dialog-box">
+        <div class="dialog-line">
+          <div class="avatar a">R</div>
+          <div class="bubble">
+            <div class="name">Rina</div>
+            "Eh, Dina! Sini sebentar!"
+          </div>
+        </div>
+        <div class="dialog-line">
+          <div class="avatar b">D</div>
+          <div class="bubble">
+            <div class="name">Dina</div>
+            "Kenapa, Rin?"
+          </div>
+        </div>
+      </div>
+      <p>Di atas, Rina sedang <strong>meminta perhatian</strong> Dina. Dalam Bahasa Inggris, kita punya banyak cara untuk melakukan hal yang sama. Yuk, kita pelajari! 🚀</p>
+      <div class="card-info warn">
+        💡 <strong>Tahukah kamu?</strong> Cara kita memanggil perhatian berbeda tergantung kepada siapa kita bicara. Kepada guru kita bicara lebih sopan, kepada teman bisa lebih santai.
+      </div>
+    </section>
+
+    <!-- D. WHY -->
+    <section class="section" id="D">
+      <h2 class="section-title"><i class="fa-solid fa-lightbulb"></i>D. Why Do We Learn This?</h2>
+      <p>Mengapa kita perlu belajar ungkapan <em>getting attention</em>?</p>
+      <div class="row g-3">
+        <div class="col-md-4">
+          <div class="card-info">
+            <div style="font-size:2rem">🏫</div>
+            <strong>Di Sekolah</strong>
+            <p class="small mb-0">Memanggil guru sebelum bertanya, meminta perhatian teman saat kerja kelompok, atau berbicara di depan kelas.</p>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="card-info success">
+            <div style="font-size:2rem">🏠</div>
+            <strong>Di Rumah</strong>
+            <p class="small mb-0">Memanggil ibu/ayuk, meminta perhatian kakak/adik, atau berbicara dengan tamu dalam Bahasa Inggris.</p>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="card-info warn">
+            <div style="font-size:2rem">🌍</div>
+            <strong>Di Lingkungan</strong>
+            <p class="small mb-0">Bertanya pada turis, berbicara dengan bule di tempat wisata, atau saat bermain game online dengan teman asing.</p>
+          </div>
+        </div>
+      </div>
+      <div class="card-info">
+        🎯 <strong>Intinya:</strong> Dengan menguasai ungkapan ini, kamu bisa memulai percakapan dalam Bahasa Inggris dengan percaya diri dan sopan—kapan saja dan di mana saja!
+      </div>
+    </section>
+
+    <!-- E. VOCABULARY -->
+    <section class="section" id="E">
+      <h2 class="section-title"><i class="fa-solid fa-spell-check"></i>E. Vocabulary – Kosakata Penting</h2>
+      <p>Klik tombol 🔊 untuk mendengar pengucapan yang benar.</p>
+
+      <h5 class="mt-3"><span class="tag formal">FORMAL</span> – Untuk guru, orang tua, orang yang lebih tua</h5>
+      <div id="vocabFormal"></div>
+
+      <h5 class="mt-4"><span class="tag informal">INFORMAL</span> – Untuk teman, adik, orang yang akrab</h5>
+      <div id="vocabInformal"></div>
+
+      <h5 class="mt-4"><span class="tag" style="background:#e6fff8;color:#0a6640">RESPONS</span> – Cara Menjawab</h5>
+      <div id="vocabResponse"></div>
+    </section>
+
+    <!-- F. GRAMMAR -->
+    <section class="section" id="F">
+      <h2 class="section-title"><i class="fa-solid fa-code"></i>F. Language Focus / Grammar</h2>
+      <p>Ungkapan <em>getting attention</em> biasanya menggunakan pola sederhana. Mari kita pelajari bertahap.</p>
+
+      <div class="grammar-box">
+        <h5><span class="step-num">1</span>Contoh Dulu, Ya!</h5>
+        <ul>
+          <li><strong>"Excuse me, Sir. May I ask a question?"</strong> (Permisi, Pak. Boleh saya bertanya?)</li>
+          <li><strong>"Hey, Budi! Look at this!"</strong> (Hei, Budi! Lihat ini!)</li>
+          <li><strong>"Pardon me, Miss. I need your help."</strong> (Maaf, Bu. Saya butuh bantuan Anda.)</li>
+        </ul>
+      </div>
+
+      <div class="grammar-box">
+        <h5><span class="step-num">2</span>Pola Umum</h5>
+        <p><code>[Ungkapan Pembuka]</code> + <code>[Nama / Panggilan]</code> + <code>[Tujuan]</code></p>
+        <table>
+          <tr><th>Jenis</th><th>Ungkapan Pembuka</th><th>Contoh</th></tr>
+          <tr><td>Formal</td><td>Excuse me, … / Pardon me, … / May I have your attention, …</td><td>Excuse me, Mr. Andi.</td></tr>
+          <tr><td>Informal</td><td>Hey, … / Hi, … / Yo, … / Listen, …</td><td>Hey, Sinta!</td></tr>
+        </table>
+      </div>
+
+      <div class="grammar-box">
+        <h5><span class="step-num">3</span>Penjelasan Singkat</h5>
+        <ul>
+          <li><strong>Excuse me</strong> → paling sopan, dipakai saat mengganggu orang lain.</li>
+          <li><strong>Pardon me</strong> → sama sopannya, lebih umum di British English.</li>
+          <li><strong>May I have your attention</strong> → sangat formal, biasanya untuk bicara di depan banyak orang.</li>
+          <li><strong>Hey / Hi / Yo</strong> → santai, hanya untuk teman dekat.</li>
+        </ul>
+      </div>
+
+      <div class="card-info danger">
+        ⚠️ <strong>Kesalahan Umum Siswa:</strong>
+        <ul class="mb-0">
+          <li>Menggunakan <em>"Hey, Teacher!"</em> → ❌ Salah! Gunakan <em>"Excuse me, Sir/Miss/Mr./Mrs."</em> atau sebut nama guru.</li>
+          <li>Menggunakan <em>"Yo, Mr. Budi!"</em> di kelas → ❌ Terlalu santai untuk guru.</li>
+          <li>Lupa menambahkan nama/panggilan → membuat ucapan terasa kurang sopan.</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- G. MODEL -->
+    <section class="section" id="G">
+      <h2 class="section-title"><i class="fa-solid fa-comments"></i>G. Model / Contoh Penggunaan</h2>
+      <p>Berikut contoh dialog dalam situasi nyata. Klik 🔊 untuk mendengar.</p>
+
+      <h5 class="mt-3">🏫 Situasi 1: Di Kelas (Formal)</h5>
+      <div class="dialog-box" id="dialog1">
+        <div class="dialog-line">
+          <div class="avatar a">A</div>
+          <div class="bubble"><div class="name">Amir (siswa)</div>
+            "Excuse me, Mr. Hadi. May I go to the toilet?"
+            <button class="audio-btn" onclick="speak('Excuse me, Mr. Hadi. May I go to the toilet?')"><i class="fa-solid fa-volume-high"></i></button>
+          </div>
+        </div>
+        <div class="dialog-line">
+          <div class="avatar c">T</div>
+          <div class="bubble"><div class="name">Mr. Hadi (guru)</div>
+            "Yes, sure. Please be quick."
+            <button class="audio-btn" onclick="speak('Yes, sure. Please be quick.')"><i class="fa-solid fa-volume-high"></i></button>
+          </div>
+        </div>
+      </div>
+
+      <h5 class="mt-4">🍱 Situasi 2: Di Kantin (Informal)</h5>
+      <div class="dialog-box" id="dialog2">
+        <div class="dialog-line">
+          <div class="avatar a">R</div>
+          <div class="bubble"><div class="name">Rara</div>
+            "Hey, Dito! Come here for a second!"
+            <button class="audio-btn" onclick="speak('Hey, Dito! Come here for a second!')"><i class="fa-solid fa-volume-high"></i></button>
+          </div>
+        </div>
+        <div class="dialog-line">
+          <div class="avatar b">D</div>
+          <div class="bubble"><div class="name">Dito</div>
+            "What's up?"
+            <button class="audio-btn" onclick="speak('What\'s up?')"><i class="fa-solid fa-volume-high"></i></button>
+          </div>
+        </div>
+        <div class="dialog-line">
+          <div class="avatar a">R</div>
+          <div class="bubble"><div class="name">Rara</div>
+            "Look! The canteen sells es tebu today!"
+            <button class="audio-btn" onclick="speak('Look! The canteen sells es tebu today!')"><i class="fa-solid fa-volume-high"></i></button>
+          </div>
+        </div>
+      </div>
+
+      <h5 class="mt-4">🏠 Situasi 3: Di Rumah (Semi-formal)</h5>
+      <div class="dialog-box" id="dialog3">
+        <div class="dialog-line">
+          <div class="avatar a">S</div>
+          <div class="bubble"><div class="name">Sari</div>
+            "Mom, pardon me. Can you help me with my homework?"
+            <button class="audio-btn" onclick="speak('Mom, pardon me. Can you help me with my homework?')"><i class="fa-solid fa-volume-high"></i></button>
+          </div>
+        </div>
+        <div class="dialog-line">
+          <div class="avatar c">M</div>
+          <div class="bubble"><div class="name">Mom</div>
+            "Of course, dear. Come here."
+            <button class="audio-btn" onclick="speak('Of course, dear. Come here.')"><i class="fa-solid fa-volume-high"></i></button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- H. LET'S UNDERSTAND -->
+    <section class="section" id="H">
+      <h2 class="section-title"><i class="fa-solid fa-brain"></i>H. Let's Understand</h2>
+      <p>Inti materi dalam satu pandangan:</p>
+      <table>
+        <tr><th>Kategori</th><th>Ungkapan</th><th>Digunakan Saat</th></tr>
+        <tr><td><span class="tag formal">Formal</span></td><td>Excuse me, Sir/Miss/Mr./Mrs. …</td><td>Bertemu guru, orang lebih tua, orang yang belum dikenal</td></tr>
+        <tr><td><span class="tag formal">Formal</span></td><td>Pardon me, …</td><td>Situasi resmi/sopan</td></tr>
+        <tr><td><span class="tag formal">Formal</span></td><td>May I have your attention, please?</td><td>Bicara di depan kelas/khalayak</td></tr>
+        <tr><td><span class="tag informal">Informal</span></td><td>Hey / Hi / Yo, [nama]!</td><td>Bertemu teman dekat</td></tr>
+        <tr><td><span class="tag informal">Informal</span></td><td>Listen! / Look!</td><td>Ingin teman segera memperhatikan</td></tr>
+        <tr><td><span class="tag" style="background:#e6fff8;color:#0a6640">Respons</span></td><td>Yes? / What? / What's up? / Yes, sure.</td><td>Menjawab panggilan</td></tr>
+      </table>
+
+      <div class="card-info">
+        💡 <strong>Kunci Penting:</strong> Pilih ungkapan berdasarkan <strong>siapa</strong> yang kamu ajak bicara dan <strong>di mana</strong> kamu berada. Semakin formal situasinya, semakin sopan ungkapan yang dipakai.
+      </div>
+    </section>
+
+    <!-- I. LET'S PRACTICE -->
+    <section class="section" id="I">
+      <h2 class="section-title"><i class="fa-solid fa-pen"></i>I. Let's Practice</h2>
+
+      <h5>🟢 Latihan 1 – Easy: Matching (Pasangkan)</h5>
+      <p>Pasangkan ungkapan di kiri dengan situasi yang tepat di kanan. Klik satu per satu.</p>
+      <div class="match-grid" id="matchGame1">
+        <div class="match-col" id="matchLeft"></div>
+        <div class="match-col" id="matchRight"></div>
+      </div>
+      <div id="matchResult1" class="card-info" style="display:none"></div>
+
+      <h5 class="mt-4">🟡 Latihan 2 – Medium: Multiple Choice</h5>
+      <div id="mcqContainer"></div>
+
+      <h5 class="mt-4">🔴 Latihan 3 – Challenge: Fill in the Blanks</h5>
+      <p>Lengkapi dialog berikut dengan ungkapan <em>getting attention</em> yang tepat.</p>
+      <div id="fillContainer"></div>
+      <button class="btn-primary-custom mt-2" onclick="checkFill()"><i class="fa-solid fa-check"></i> Periksa Jawaban</button>
+      <div id="fillResult" class="mt-3"></div>
+    </section>
+
+    <!-- LISTENING -->
+    <section class="section" id="I2">
+      <h2 class="section-title"><i class="fa-solid fa-headphones"></i>Listening Comprehension</h2>
+      <div class="listening-box">
+        <p><strong>Instruksi:</strong> Dengarkan audio di bawah ini <em>(boleh diputar beberapa kali)</em>, lalu jawab pertanyaannya.</p>
+        <button class="play-btn" onclick="playListening()"><i class="fa-solid fa-play"></i> Putar Audio</button>
+        <button class="play-btn" onclick="stopSpeech()" style="background:#eee"><i class="fa-solid fa-stop"></i> Berhenti</button>
+        <div class="mt-3">
+          <small class="text-muted">💡 Tips: Gunakan earphone untuk hasil terbaik. Audio akan dibacakan dengan kecepatan sedang.</small>
+        </div>
+      </div>
+
+      <div class="card-info">
+        <strong>📝 Audio Script (untuk guru / referensi):</strong>
+        <p class="small mb-0"><em>"Good morning, students. May I have your attention, please? Today, we will learn about getting attention in English. Listen carefully, okay? Excuse me, Rina. Are you listening? Yes, Sir. Good."</em></p>
+      </div>
+
+      <h5 class="mt-3">Jawab pertanyaan berikut:</h5>
+      <div id="listeningQ"></div>
+      <button class="btn-primary-custom mt-2" onclick="checkListening()"><i class="fa-solid fa-check"></i> Periksa Jawaban</button>
+      <div id="listeningResult" class="mt-3"></div>
+    </section>
+
+    <!-- READING -->
+    <section class="section" id="I3">
+      <h2 class="section-title"><i class="fa-solid fa-book"></i>Reading Comprehension</h2>
+      <div class="card-info">
+        <p class="mb-2"><strong>📖 Baca teks berikut dengan saksama:</strong></p>
+        <p><strong>A Busy Morning at School</strong></p>
+        <p>It was Monday morning. The students were chatting in the classroom. Suddenly, Mr. Budi came in. He said, <em>"Good morning, everyone. May I have your attention, please?"</em> All the students stopped talking and looked at him.</p>
+        <p>"Today, we will have a surprise quiz," Mr. Budi added. Some students groaned. Rina raised her hand and said, <em>"Excuse me, Sir. May I borrow a pen from Dito?"</em> Mr. Budi nodded, "Yes, sure."</p>
+        <p>After the quiz, Dito turned to Rina and said, <em>"Hey, Rina! Do you want to go to the canteen?"</em> Rina smiled, "Sure! Let's go."</p>
+      </div>
+
+      <h5>Jawab pertanyaan berikut:</h5>
+      <div id="readingQ"></div>
+      <button class="btn-primary-custom mt-2" onclick="checkReading()"><i class="fa-solid fa-check"></i> Periksa Jawaban</button>
+      <div id="readingResult" class="mt-3"></div>
+    </section>
+
+    <!-- J. REAL LIFE -->
+    <section class="section" id="J">
+      <h2 class="section-title"><i class="fa-solid fa-house"></i>J. Let's Use It in Real Life</h2>
+      <p>Yuk, praktikkan langsung dalam kehidupan nyata! 🎯</p>
+
+      <div class="card-info success">
+        <h5><span class="step-num">1</span>Aktivitas Berpasangan</h5>
+        <p>Bersama teman sebangkumu, buatlah 3 dialog singkat dengan situasi:</p>
+        <ul>
+          <li>Memanggil guru di kelas.</li>
+          <li>Memanggil teman di kantin.</li>
+          <li>Memanggil orang tua di rumah.</li>
+        </ul>
+        <p>Praktikkan di depan kelas! 🎤</p>
+      </div>
+
+      <div class="card-info">
+        <h5><span class="step-num">2</span>Observasi Lingkungan</h5>
+        <p>Perhatikan cara orang-orang di sekitarmu memanggil perhatian orang lain (di rumah, di warung, di jalan). Tuliskan 3 contoh dalam Bahasa Inggris!</p>
+      </div>
+
+      <div class="card-info warn">
+        <h5><span class="step-num">3</span>Challenge Harian</h5>
+        <p>Hari ini, cobalah memanggil perhatian seseorang (teman/guru/orang tua) menggunakan Bahasa Inggris minimal <strong>1 kali</strong>. Catat respons mereka! 😊</p>
+      </div>
+    </section>
+
+    <!-- K. MINI PROJECT -->
+    <section class="section" id="K">
+      <h2 class="section-title"><i class="fa-solid fa-palette"></i>K. Let's Create – Mini Project</h2>
+      <div class="project-box">
+        <h4>🎬 Proyek: "Getting Attention Comic Strip"</h4>
+        <p>Buatlah komik strip (4 panel) yang menceritakan situasi seseorang meminta perhatian dalam Bahasa Inggris.</p>
+        <p><strong>Ketentuan:</strong></p>
+        <ul>
+          <li>Gunakan minimal <strong>3 ungkapan getting attention</strong> berbeda.</li>
+          <li>Gambarkan minimal <strong>2 karakter</strong>.</li>
+          <li>Tulis dialog dalam Bahasa Inggris.</li>
+          <li>Bisa digambar di kertas A4 atau dibuat digital (Canva, dll).</li>
+        </ul>
+        <p><strong>Contoh ide cerita:</strong></p>
+        <ul>
+          <li>Seorang siswa memanggil guru saat jam pelajaran.</li>
+          <li>Seorang turis tersesat dan memanggil perhatian penduduk lokal.</li>
+          <li>Seorang anak memanggil ibunya yang sedang memasak.</li>
+        </ul>
+        <p>🏆 Karya terbaik akan dipajang di mading kelas!</p>
+      </div>
+    </section>
+
+    <!-- L. REFLECTION -->
+    <section class="section" id="L">
+      <h2 class="section-title"><i class="fa-solid fa-rotate-left"></i>L. Reflection</h2>
+      <p>Renungkan pembelajaranmu hari ini. Tulis jawabanmu di kotak berikut:</p>
+      <div class="reflect-q">
+        <strong>1. What did you learn today?</strong>
+        <textarea placeholder="Tulis jawabanmu di sini..."></textarea>
+      </div>
+      <div class="reflect-q">
+        <strong>2. Which expression is your favorite? Why?</strong>
+        <textarea placeholder="Tulis jawabanmu di sini..."></textarea>
+      </div>
+      <div class="reflect-q">
+        <strong>3. Where can you use this English in your daily life?</strong>
+        <textarea placeholder="Tulis jawabanmu di sini..."></textarea>
+      </div>
+      <div class="reflect-q">
+        <strong>4. What part was difficult for you?</strong>
+        <textarea placeholder="Tulis jawabanmu di sini..."></textarea>
+      </div>
+      <div class="reflect-q">
+        <strong>5. How do you feel after learning this material? 😊😐😟</strong>
+        <textarea placeholder="Tulis jawabanmu di sini..."></textarea>
+      </div>
+    </section>
+
+    <!-- M. SUMMARY -->
+    <section class="section" id="M">
+      <h2 class="section-title"><i class="fa-solid fa-clipboard-list"></i>M. Summary / Rangkuman</h2>
+      <div class="card-info">
+        <h5>🎯 Inti Materi:</h5>
+        <ul>
+          <li><strong>Getting attention</strong> = cara meminta perhatian orang lain sebelum memulai percakapan.</li>
+          <li>Ada ungkapan <strong>formal</strong> (sopan) dan <strong>informal</strong> (santai).</li>
+          <li>Pilih ungkapan berdasarkan <strong>siapa</strong> dan <strong>situasi</strong>.</li>
+        </ul>
+      </div>
+      <h5>📌 Kosakata Utama:</h5>
+      <table>
+        <tr><th>Formal</th><th>Informal</th></tr>
+        <tr><td>Excuse me, …</td><td>Hey, …</td></tr>
+        <tr><td>Pardon me, …</td><td>Hi, …</td></tr>
+        <tr><td>May I have your attention, please?</td><td>Yo, …</td></tr>
+        <tr><td>Sir / Miss / Mr. / Mrs.</td><td>Listen! / Look!</td></tr>
+      </table>
+      <h5 class="mt-3">💬 Respons Umum:</h5>
+      <p><em>Yes? / What? / What's up? / Yes, sure. / Of course.</em></p>
+    </section>
+
+    <!-- N. ASSESSMENT -->
+    <section class="section" id="N">
+      <h2 class="section-title"><i class="fa-solid fa-star"></i>N. Assessment / Evaluasi Akhir</h2>
+      <p>Kerjakan soal berikut untuk menguji pemahamanmu. Skor akan muncul otomatis.</p>
+      <div id="finalQuiz"></div>
+      <button class="btn-primary-custom mt-3" onclick="checkFinal()"><i class="fa-solid fa-check-double"></i> Submit & Lihat Skor</button>
+      <button class="btn-outline-custom mt-3" onclick="resetFinal()"><i class="fa-solid fa-rotate-right"></i> Ulangi</button>
+      <div id="finalResult" class="mt-3"></div>
+
+      <h5 class="mt-4">📝 Soal Uraian (Bonus)</h5>
+      <div class="card-info">
+        <p><strong>Tulis dialog singkat (4–6 baris)</strong> antara kamu dan seorang turis asing yang tersesat di sekolahmu. Gunakan minimal 2 ungkapan <em>getting attention</em>.</p>
+        <textarea style="width:100%;min-height:120px;border:1px solid #ddd;border-radius:10px;padding:.7rem" placeholder="Tulis dialogmu di sini..."></textarea>
+      </div>
+
+      <div class="card-info warn">
+        <h5>📊 Rubrik Penilaian Uraian</h5>
+        <table>
+          <tr><th>Aspek</th><th>Skor 4</th><th>Skor 3</th><th>Skor 2</th><th>Skor 1</th></tr>
+          <tr><td>Kesesuaian isi</td><td>Sesuai konteks & lengkap</td><td>Sesuai tapi kurang lengkap</td><td>Kurang sesuai</td><td>Tidak sesuai</td></tr>
+          <tr><td>Penggunaan ungkapan</td><td>≥2 ungkapan tepat</td><td>2 ungkapan, 1 kurang tepat</td><td>1 ungkapan tepat</td><td>Tidak ada ungkapan</td></tr>
+          <tr><td>Tata bahasa</td><td>Minimal kesalahan</td><td>Beberapa kesalahan, makna tetap jelas</td><td>Banyak kesalahan</td><td>Sulit dipahami</td></tr>
+          <tr><td>Kreativitas</td><td>Dialog natural & menarik</td><td>Cukup menarik</td><td>Kurang variatif</td><td>Monoton</td></tr>
+        </table>
+      </div>
+    </section>
+
+    <div class="nav-buttons">
+      <button class="btn-outline-custom" onclick="prevSection()"><i class="fa-solid fa-arrow-left"></i> Sebelumnya</button>
+      <button class="btn-primary-custom" onclick="nextSection()">Selanjutnya <i class="fa-solid fa-arrow-right"></i></button>
+    </div>
+
+  </main>
+</div>
+
+<script>
+/* ===== DATA ===== */
+const vocabFormal = [
+  {en:"Excuse me, Sir/Miss.",id:"Permisi, Pak/Bu.",ex:"Excuse me, Sir. May I ask a question?"},
+  {en:"Pardon me.",id:"Maafkan saya (sangat sopan).",ex:"Pardon me, Mrs. Ani. I need your help."},
+  {en:"May I have your attention, please?",id:"Bolehkah saya minta perhatiannya?",ex:"May I have your attention, please? The principal wants to speak."},
+  {en:"I'm sorry to interrupt, but…",id:"Maaf mengganggu, tapi…",ex:"I'm sorry to interrupt, but there's a phone call for you."}
+];
+const vocabInformal = [
+  {en:"Hey, [name]!",id:"Hei, [nama]!",ex:"Hey, Rina! Come here!"},
+  {en:"Hi, [name]!",id:"Hai, [nama]!",ex:"Hi, Dito! Look at this!"},
+  {en:"Yo!",id:"Yo! (sangat santai)",ex:"Yo, guys! Let's play!"},
+  {en:"Listen!",id:"Dengar!",ex:"Listen! I have good news."},
+  {en:"Look!",id:"Lihat!",ex:"Look! A rainbow!"}
+];
+const vocabResponse = [
+  {en:"Yes?",id:"Ya? (panggilan direspons)",ex:"— Hey, Budi!  — Yes?"},
+  {en:"What's up?",id:"Ada apa? (santai)",ex:"— Yo, Dito!  — What's up?"},
+  {en:"What?",id:"Apa? (teman dekat)",ex:"— Hey!  — What?"},
+  {en:"Yes, sure.",id:"Ya, tentu.",ex:"— Excuse me, Sir.  — Yes, sure."},
+  {en:"Of course.",id:"Tentu saja.",ex:"— Mom, can you help?  — Of course."}
+];
+
+const mcqData = [
+  {q:"Situation: You want to ask your teacher a question in class. What do you say?",
+   opts:["A. Yo, Teacher!","B. Excuse me, Sir. May I ask something?","C. Hey, Mr. Budi!","D. Listen to me!"],
+   ans:1, explain:"Kita menggunakan 'Excuse me, Sir/Miss' karena berbicara dengan guru (formal)."},
+  {q:"Which expression is INFORMAL?",
+   opts:["A. Pardon me, Miss.","B. May I have your attention, please?","C. Hey, Sinta!","D. Excuse me, Mr. Andi."],
+   ans:2, explain:"'Hey' adalah ungkapan santai yang digunakan untuk teman."},
+  {q:"Your friend calls: 'Hey, Rara!' What is the best response?",
+   opts:["A. Pardon me.","B. May I help you?","C. What's up?","D. Excuse me."],
+   ans:2, explain:"'What's up?' adalah respons santai untuk teman."},
+  {q:"You want to speak in front of the whole class. You say:",
+   opts:["A. Yo, guys!","B. Hey, everyone!","C. May I have your attention, please?","D. Listen, everybody!"],
+   ans:2, explain:"'May I have your attention, please?' adalah ungkapan formal untuk khalayak."},
+  {q:"Which one is WRONG?",
+   opts:["A. Excuse me, Mrs. Sari.","B. Hey, Mom!","C. Yo, Mr. Budi!","D. Pardon me, Sir."],
+   ans:2, explain:"'Yo' terlalu santai untuk guru. Seharusnya 'Excuse me, Mr. Budi'."}
+];
+
+const fillData = [
+  {before:"_______ , Mr. Hadi. May I go out?", answer:["excuse me","pardon me"]},
+  {before:"_______ , Dito! Look at my new shoes!", answer:["hey","hi","yo"]},
+  {before:"May I have your _______ , please?", answer:["attention"]},
+  {before:"_______ ! There's a cat outside!", answer:["look"]},
+  {before:"— Hey, Rina!  — _______ ?", answer:["yes","what","what's up"]}
+];
+
+const listeningQs = [
+  {q:"Who is speaking at the beginning of the audio?",
+   opts:["A. A student","B. A teacher","C. A parent","D. A canteen seller"], ans:1},
+  {q:"What expression does the teacher use to get attention?",
+   opts:["A. Hey, everyone!","B. Yo, students!","C. May I have your attention, please?","D. Listen to me!"], ans:2},
+  {q:"Who does the teacher call by name?",
+   opts:["A. Dito","B. Rina","C. Budi","D. Sari"], ans:1},
+  {q:"What does Rina answer?",
+   opts:["A. What's up?","B. Yes, Sir.","C. Pardon me.","D. Hey, Sir."], ans:1}
+];
+
+const readingQs = [
+  {q:"Where does the story take place?",
+   opts:["A. In the canteen","B. In the classroom","C. At home","D. On the field"], ans:1},
+  {q:"What expression does Mr. Budi use to start his announcement?",
+   opts:["A. Hey, everyone!","B. Yo, students!","C. May I have your attention, please?","D. Listen, guys!"], ans:2},
+  {q:"Why does Rina raise her hand?",
+   opts:["A. To answer a question","B. To borrow a pen from Dito","C. To go to the toilet","D. To leave the class"], ans:1},
+  {q:"What does Dito say to Rina after the quiz?",
+   opts:["A. Excuse me, Rina.","B. Hey, Rina! Do you want to go to the canteen?","C. Pardon me, Rina.","D. May I have your attention?"], ans:1},
+  {q:"Which expression in the text is INFORMAL?",
+   opts:["A. May I have your attention, please?","B. Excuse me, Sir.","C. Hey, Rina!","D. Yes, sure."], ans:2}
+];
+
+const finalQs = [
+  {q:"Choose the FORMAL expression to get your teacher's attention.",
+   opts:["A. Yo, Sir!","B. Excuse me, Sir.","C. Hey, Teacher!","D. Listen, Mr. Budi!"], ans:1},
+  {q:"Your friend is playing a game. You want to show him something. You say:",
+   opts:["A. Pardon me, friend.","B. May I have your attention?","C. Hey, look at this!","D. Excuse me, buddy."], ans:2},
+  {q:"What is the BEST response to 'Excuse me, Miss?'",
+   opts:["A. Yo!","B. What's up?","C. Yes? How can I help you?","D. Hey!"], ans:2},
+  {q:"Which sentence is INCORRECT?",
+   opts:["A. Pardon me, Mrs. Ani.","B. Hey, guys!","C. Yo, Mr. Hadi!","D. Excuse me, Sir."], ans:2},
+  {q:"You are giving a speech in front of the school. You start with:",
+   opts:["A. Hey, everyone!","B. Yo, students!","C. May I have your attention, please?","D. Listen, guys!"], ans:2},
+  {q:"'Look!' is usually used to…",
+   opts:["A. Ask someone to see something","B. Greet a teacher","C. Say goodbye","D. Apologize"], ans:0},
+  {q:"Your mom is cooking. You want to tell her something. You say:",
+   opts:["A. Yo, Mom!","B. Mom, excuse me. Can I talk to you?","C. Hey, listen, Mom!","D. Pardon me, ladies."], ans:1},
+  {q:"Which pair is CORRECT?",
+   opts:["A. Formal: Hey! / Informal: Excuse me.","B. Formal: Excuse me, Sir. / Informal: Yo, guys!","C. Formal: Yo, Sir! / Informal: Pardon me.","D. Formal: Listen! / Informal: May I have your attention?"], ans:1},
+  {q:"Complete: '_______ , everyone. The principal is here.'",
+   opts:["A. Yo","B. Hey","C. May I have your attention","D. Look"], ans:2},
+  {q:"What is the main idea of this topic?",
+   opts:["A. How to say goodbye","B. How to introduce yourself","C. How to get someone's attention politely","D. How to apologize"], ans:2}
+];
+
+/* ===== RENDER ===== */
+function renderVocab(){
+  const f = document.getElementById('vocabFormal');
+  const i = document.getElementById('vocabInformal');
+  const r = document.getElementById('vocabResponse');
+  vocabFormal.forEach(v=>{
+    f.innerHTML += `<div class="vocab-card">
+      <div class="vocab-en">${v.en}<button class="audio-btn" onclick="speak('${v.en.replace(/'/g,"\\'")}')"><i class="fa-solid fa-volume-high"></i></button></div>
+      <div class="vocab-id">${v.id}</div>
+      <div class="vocab-ex">📝 ${v.ex}</div>
+    </div>`;
+  });
+  vocabInformal.forEach(v=>{
+    i.innerHTML += `<div class="vocab-card">
+      <div class="vocab-en">${v.en}<button class="audio-btn" onclick="speak('${v.en.replace(/'/g,"\\'")}')"><i class="fa-solid fa-volume-high"></i></button></div>
+      <div class="vocab-id">${v.id}</div>
+      <div class="vocab-ex">📝 ${v.ex}</div>
+    </div>`;
+  });
+  vocabResponse.forEach(v=>{
+    r.innerHTML += `<div class="vocab-card">
+      <div class="vocab-en">${v.en}<button class="audio-btn" onclick="speak('${v.en.replace(/'/g,"\\'")}')"><i class="fa-solid fa-volume-high"></i></button></div>
+      <div class="vocab-id">${v.id}</div>
+      <div class="vocab-ex">📝 ${v.ex}</div>
+    </div>`;
+  });
+}
+
+function renderMCQ(){
+  const c = document.getElementById('mcqContainer');
+  mcqData.forEach((q,i)=>{
+    let opts = q.opts.map((o,j)=>`<div class="quiz-option" data-q="${i}" data-o="${j}" onclick="selectMCQ(this,${i},${j})">${o}</div>`).join('');
+    c.innerHTML += `<div class="card-info"><strong>Soal ${i+1}.</strong> ${q.q}<div class="mt-2">${opts}</div><div class="hidden-answer" id="mcqExp${i}"><strong>💡 Penjelasan:</strong> ${q.explain}</div></div>`;
+  });
+}
+
+function renderFill(){
+  const c = document.getElementById('fillContainer');
+  fillData.forEach((f,i)=>{
+    const parts = f.before.split('_______');
+    c.innerHTML += `<div class="card-info"><strong>${i+1}.</strong> ${parts[0]}<input type="text" class="fill-input" id="fill${i}">${parts[1]||''}</div>`;
+  });
+}
+
+function renderListening(){
+  const c = document.getElementById('listeningQ');
+  listeningQs.forEach((q,i)=>{
+    let opts = q.opts.map((o,j)=>`<div class="quiz-option" data-lq="${i}" data-lo="${j}" onclick="selectLQ(this,${i},${j})">${o}</div>`).join('');
+    c.innerHTML += `<div class="card-info"><strong>${i+1}.</strong> ${q.q}<div class="mt-2">${opts}</div></div>`;
+  });
+}
+
+function renderReading(){
+  const c = document.getElementById('readingQ');
+  readingQs.forEach((q,i)=>{
+    let opts = q.opts.map((o,j)=>`<div class="quiz-option" data-rq="${i}" data-ro="${j}" onclick="selectRQ(this,${i},${j})">${o}</div>`).join('');
+    c.innerHTML += `<div class="card-info"><strong>${i+1}.</strong> ${q.q}<div class="mt-2">${opts}</div></div>`;
+  });
+}
+
+function renderFinal(){
+  const c = document.getElementById('finalQuiz');
+  finalQs.forEach((q,i)=>{
+    let opts = q.opts.map((o,j)=>`<div class="quiz-option" data-fq="${i}" data-fo="${j}" onclick="selectFQ(this,${i},${j})">${o}</div>`).join('');
+    c.innerHTML += `<div class="card-info"><strong>${i+1}.</strong> ${q.q}<div class="mt-2">${opts}</div></div>`;
+  });
+}
+
+/* ===== MATCHING GAME ===== */
+const matchPairs = [
+  {left:"Excuse me, Sir.", right:"Bertemu guru di kelas"},
+  {left:"Hey, Dito!", right:"Memanggil teman di kantin"},
+  {left:"May I have your attention, please?", right:"Berbicara di depan banyak orang"},
+  {left:"Yo, guys!", right:"Bersantai dengan sahabat"},
+  {left:"Pardon me, Mom.", right:"Memanggil ibu dengan sopan"}
+];
+let matchSelected = {left:null,right:null};
+let matchScore = 0;
+
+function renderMatch(){
+  const leftCol = document.getElementById('matchLeft');
+  const rightCol = document.getElementById('matchRight');
+  const shuffledRight = [...matchPairs].sort(()=>Math.random()-0.5);
+  matchPairs.forEach((p,i)=>{
+    leftCol.innerHTML += `<div class="match-item" data-side="left" data-idx="${i}" onclick="selectMatch(this)">${p.left}</div>`;
+  });
+  shuffledRight.forEach((p,i)=>{
+    rightCol.innerHTML += `<div class="match-item" data-side="right" data-idx="${matchPairs.indexOf(p)}" onclick="selectMatch(this)">${p.right}</div>`;
+  });
+}
+
+function selectMatch(el){
+  if(el.classList.contains('matched'))return;
+  const side = el.dataset.side;
+  const idx = el.dataset.idx;
+  document.querySelectorAll(`.match-item[data-side="${side}"]`).forEach(e=>{
+    if(!e.classList.contains('matched'))e.classList.remove('selected');
+  });
+  el.classList.add('selected');
+  matchSelected[side] = idx;
+  if(matchSelected.left!==null && matchSelected.right!==null){
+    if(matchSelected.left === matchSelected.right){
+      document.querySelectorAll(`.match-item[data-idx="${matchSelected.left}"]`).forEach(e=>{
+        e.classList.remove('selected');
+        e.classList.add('matched');
+      });
+      matchScore++;
+      if(matchScore === matchPairs.length){
+        const r = document.getElementById('matchResult1');
+        r.style.display='block';
+        r.innerHTML = `<strong>🎉 Hebat!</strong> Kamu berhasil memasangkan semua dengan benar!`;
+        r.className = 'card-info success';
+      }
+    } else {
+      const l = document.querySelector(`.match-item[data-side="left"][data-idx="${matchSelected.left}"].selected`);
+      const r = document.querySelector(`.match-item[data-side="right"][data-idx="${matchSelected.right}"].selected`);
+      if(l)l.style.background='#ffe0ea';
+      if(r)r.style.background='#ffe0ea';
+      setTimeout(()=>{
+        if(l){l.classList.remove('selected');l.style.background='';}
+        if(r){r.classList.remove('selected');r.style.background='';}
+      },600);
+    }
+    matchSelected = {left:null,right:null};
+  }
+}
+
+/* ===== INTERACTION ===== */
+function selectMCQ(el,qi,oi){
+  document.querySelectorAll(`[data-q="${qi}"]`).forEach(e=>e.classList.remove('correct','wrong'));
+  el.classList.add(oi===mcqData[qi].ans?'correct':'wrong');
+  if(oi!==mcqData[qi].ans){
+    document.querySelector(`[data-q="${qi}"][data-o="${mcqData[qi].ans}"]`).classList.add('correct');
+  }
+  document.getElementById(`mcqExp${qi}`).style.display='block';
+}
+
+function checkFill(){
+  let correct = 0;
+  fillData.forEach((f,i)=>{
+    const input = document.getElementById(`fill${i}`);
+    const val = input.value.trim().toLowerCase();
+    if(f.answer.includes(val)){
+      input.style.borderBottomColor = 'var(--success)';
+      input.style.color = 'var(--success)';
+      correct++;
+    } else {
+      input.style.borderBottomColor = 'var(--accent)';
+      input.style.color = 'var(--accent)';
+    }
+  });
+  const r = document.getElementById('fillResult');
+  r.innerHTML = `<div class="card-info ${correct===fillData.length?'success':''}"><strong>Skor: ${correct}/${fillData.length}</strong><br>Jawaban yang benar berturut-turut: <em>${fillData.map(f=>f.answer[0]).join(', ')}</em></div>`;
+}
+
+function selectLQ(el,qi,oi){
+  document.querySelectorAll(`[data-lq="${qi}"]`).forEach(e=>e.classList.remove('correct','wrong'));
+  el.classList.add(oi===listeningQs[qi].ans?'correct':'wrong');
+  if(oi!==listeningQs[qi].ans){
+    document.querySelector(`[data-lq="${qi}"][data-lo="${listeningQs[qi].ans}"]`).classList.add('correct');
+  }
+}
+
+function checkListening(){
+  let correct = 0;
+  listeningQs.forEach((q,i)=>{
+    const sel = document.querySelector(`[data-lq="${i}"].correct`);
+    if(sel)correct++;
+  });
+  const r = document.getElementById('listeningResult');
+  r.innerHTML = `<div class="card-info ${correct===listeningQs.length?'success':''}"><strong>🎧 Skor Listening: ${correct}/${listeningQs.length}</strong></div>`;
+}
+
+function selectRQ(el,qi,oi){
+  document.querySelectorAll(`[data-rq="${qi}"]`).forEach(e=>e.classList.remove('correct','wrong'));
+  el.classList.add(oi===readingQs[qi].ans?'correct':'wrong');
+  if(oi!==readingQs[qi].ans){
+    document.querySelector(`[data-rq="${qi}"][data-ro="${readingQs[qi].ans}"]`).classList.add('correct');
+  }
+}
+
+function checkReading(){
+  let correct = 0;
+  readingQs.forEach((q,i)=>{
+    const sel = document.querySelector(`[data-rq="${i}"].correct`);
+    if(sel)correct++;
+  });
+  const r = document.getElementById('readingResult');
+  r.innerHTML = `<div class="card-info ${correct===readingQs.length?'success':''}"><strong>📖 Skor Reading: ${correct}/${readingQs.length}</strong></div>`;
+}
+
+function selectFQ(el,qi,oi){
+  document.querySelectorAll(`[data-fq="${qi}"]`).forEach(e=>e.classList.remove('correct','wrong'));
+  el.classList.add(oi===finalQs[qi].ans?'correct':'wrong');
+  if(oi!==finalQs[qi].ans){
+    document.querySelector(`[data-fq="${qi}"][data-fo="${finalQs[qi].ans}"]`).classList.add('correct');
+  }
+}
+
+function checkFinal(){
+  let correct = 0;
+  finalQs.forEach((q,i)=>{
+    const sel = document.querySelector(`[data-fq="${i}"].correct`);
+    if(sel)correct++;
+  });
+  const total = finalQs.length;
+  const percent = Math.round(correct/total*100);
+  let msg = '';
+  if(percent>=80)msg='🌟 Excellent! Kamu sangat memahami materi!';
+  else if(percent>=60)msg='👍 Good job! Terus berlatih ya!';
+  else if(percent>=40)msg='💪 Lumayan! Coba baca lagi bagian Vocabulary & Grammar.';
+  else msg='📚 Jangan menyerah! Pelajari ulang materinya dan coba lagi.';
+  const r = document.getElementById('finalResult');
+  r.innerHTML = `<div class="score-box"><h2>${correct}/${total}</h2><div>Skor: ${percent}%</div><div class="mt-2">${msg}</div></div>`;
+}
+
+function resetFinal(){
+  document.querySelectorAll('[data-fq]').forEach(e=>e.classList.remove('correct','wrong'));
+  document.getElementById('finalResult').innerHTML='';
+}
+
+/* ===== AUDIO (Web Speech API) ===== */
+let currentUtterance = null;
+function speak(text){
+  stopSpeech();
+  if(!('speechSynthesis' in window)){
+    alert('Browser kamu tidak mendukung audio. Coba Chrome/Edge.');
+    return;
+  }
+  const u = new SpeechSynthesisUtterance(text);
+  u.lang = 'en-US';
+  u.rate = 0.9;
+  u.pitch = 1;
+  const voices = speechSynthesis.getVoices();
+  const enVoice = voices.find(v=>v.lang.startsWith('en'));
+  if(enVoice)u.voice = enVoice;
+  currentUtterance = u;
+  speechSynthesis.speak(u);
+}
+
+function stopSpeech(){
+  if('speechSynthesis' in window)speechSynthesis.cancel();
+}
+
+function playListening(){
+  const text = "Good morning, students. May I have your attention, please? Today, we will learn about getting attention in English. Listen carefully, okay? Excuse me, Rina. Are you listening? Yes, Sir. Good.";
+  speak(text);
+}
+
+/* ===== NAVIGATION ===== */
+const sections = ['A','B','C','D','E','F','G','H','I','I2','I3','J','K','L','M','N'];
+let currentIdx = 0;
+const visited = new Set(['A']);
+
+function showSection(id){
+  document.querySelectorAll('.section').forEach(s=>s.classList.remove('active'));
+  document.getElementById(id).classList.add('active');
+  document.querySelectorAll('.nav-list a').forEach(a=>a.classList.remove('active'));
+  const link = document.querySelector(`.nav-list a[data-target="${id}"]`);
+  if(link)link.classList.add('active');
+  currentIdx = sections.indexOf(id);
+  visited.add(id);
+  updateProgress();
+  window.scrollTo({top:0,behavior:'smooth'});
+}
+
+function nextSection(){
+  if(currentIdx < sections.length-1)showSection(sections[currentIdx+1]);
+}
+function prevSection(){
+  if(currentIdx > 0)showSection(sections[currentIdx-1]);
+}
+
+function updateProgress(){
+  const pct = Math.round(visited.size/sections.length*100);
+  document.getElementById('progressBar').style.width = pct+'%';
+  document.getElementById('progressText').textContent = `Progress: ${visited.size} / ${sections.length} bagian (${pct}%)`;
+}
+
+document.querySelectorAll('.nav-list a').forEach(a=>{
+  a.addEventListener('click',e=>{
+    e.preventDefault();
+    showSection(a.dataset.target);
+  });
+});
+
+/* ===== RESET ===== */
+function resetAll(){
+  if(!confirm('Yakin ingin mereset semua latihan?'))return;
+  location.reload();
+}
+
+/* ===== INIT ===== */
+window.addEventListener('load',()=>{
+  renderVocab();
+  renderMCQ();
+  renderFill();
+  renderListening();
+  renderReading();
+  renderFinal();
+  renderMatch();
+  // Preload voices
+  if('speechSynthesis' in window){
+    speechSynthesis.getVoices();
+    speechSynthesis.onvoiceschanged = ()=>speechSynthesis.getVoices();
+  }
+  updateProgress();
+});
+</script>
+</body>
+</html>
